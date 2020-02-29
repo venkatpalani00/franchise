@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Connections</title>
+
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <style type="text/css">
+    .modal-content {
+
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      background-color: blue;
+
+    }
+
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+
+
+    /* Movement during wrong changes */
+    .section1 {
+      animation: shake 1.1s cubic-bezier(.36, .07, .19, .97) both;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+
+    @keyframes shake {
+
+      10%,
+      90% {
+        transform: translate3d(-1px, 0, 0);
+      }
+
+      20%,
+      80% {
+        transform: translate3d(2px, 0, 0);
+      }
+
+      30%,
+      50%,
+      70% {
+        transform: translate3d(-4px, 0, 0);
+      }
+
+      40%,
+      60% {
+        transform: translate3d(4px, 0, 0);
+      }
+    }
+
+    .wronganswer {
+      text-align: center;
+      font-family: var(--ansfont);
+      color: red;
+      font-size: 40px;
+      display: block;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/css/logged.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+  <div class="finalpage" id="finalpage">
+
+
+    <div class="section1" id="section1">
+
+      <div class="container">
+
+        <div class="row justify-content-center">
+
+
+
+          <div class="col-10 col-md-6 mainsection">
+            <div class="header">
+              <!-- <p>Hola, <%= loggedUser[0].name %> </p> -->
+              <p>Hola, <%= loggedUser[0].name %> </p>
+              <p id="levelno">🏆 <%= level %></p>
+            </div>
+
+            <div class="carousel">
+              <!--Carousel Begins-->
+              <section class="cd-slider">
+                <!--section-->
+
+                <ul>
+                  <!--first list-->
+                  <li data-color="#FF384B" id="1">
+                    <div class="content">
+                      <div class="imagecontainer">
+                        <div class="imagewrapper">
+                          <!-- <img src="/asset/one.jpg" alt="animated" class="first"> -->
+                          <img src="<%= question.question[0] %>" alt="animated" class="first">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <!--second list-->
+                  <li data-color="#FF9C00" id="2">
+                    <div class="content">
+                      <div class="imagecontainer">
+                        <div class="imagewrapper">
+                          <!-- <img src="/asset/two.jpg" alt="" class="second"> -->
+                          <img src="<%= question.question[1] %>" alt="" class="second">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <!--third list-->
+                  <li data-color="#002AFF " id="3">
+                    <div class="content">
+                      <div class="imagecontainer">
+                        <div class="imagewrapper">
+                          <!-- <img src="/asset/virat.jpg" alt="" class="third"> -->
+                          <img src="<%= question.question[2] %>" alt="" class="third">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <!--navigation-->
+                <nav>
+                  <div><a href="#" class="prev"></a></div>
+                  <div><a href="#" class="next"></a></div>
+                </nav>
+              </section>
+            </div>
+
+            <div class="container" id="pagination">
+              <div class="row app">
+
+                <div class="but active">
+
+                </div>
+                <div class="but">
+
+                </div>
+                <div class="but">
+
+                </div>
+
+              </div>
+            </div>
+            <div class="wronganswer">
+              <p class="right" data-toggle="modal" data-target="#myModal"></p>
+              <p class="wrong"></p>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="inputdiv">
+              <form id="" method="POST">
+                <input type="text" id='ans' name="id" placeholder="Answer Please!">
+                <!-- <input type="submit" id="answerbutton" > -->
+              </form>
+              
+
+            </div>
+
+
+            <div class="buttontag">
+
+              <div class="row">
+
+                <!-- <div class="col-6"> <button type="button" id="previous" style="color:red;"  class="pre"> previous</button> </div> -->
+
+
+
+                <div class="col-6"> <button type="button" id="hintbutton"> Hint</button> </div>
+
+
+                <div class="col-6"> <button type="button" id="answerbutton">Answer</button> </div>
+                <!-- <div class="col-6"> <button type="button" id="next" style="color:green" class="nex"> next</button> </div> -->
+
+
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="popup">
+    <div class="row queen">
+      <i class="fa fa-times-circle" onclick="toggle()"></i>
+    </div>
+
+    <div class="row king">
+      <div class="col-4 col-md-4 team1">
+        <img src="/asset/ezgif-7-08d84802588d.gif" alt="" id="you" style="width: 90%; height:90%">
+      </div>
+      <div class="col-4 col-md-4 vs">
+        <h1 id="compeletedLevel">Level <%= level-1 %> 🆙</h1>
+
+        <div class="match">
+          😎 You 🆚 CPU 🤖
+        </div>
+      </div>
+      <div class="col-4 col-md-4 team2">
+        <img src="/asset/virat.jpg" alt=""  id="opp" style="width: 90%; height:90%">
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Hurrah!! You got it Right</h4>
+        </div>
+        <div class="modal-body">
+          <img class="img-responsive" src="/asset/two.jpg" alt="Chania" style="width: 100%;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info btn-lg" data-dismiss="modal" onclick="toggle()">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- <div class="container success" style="width: 50%;height: px;background: #41bf417a;border-radius: 8px;display:none">
+  <div class="inner" style="text-align: center;vertical-align: middle;line-height: 50px;">
+   <p class="k"></p>
+ </div> 
+</div>
+ <div class="container success" style="width: 100%;height: 50px;background: #41bf417a;border-radius: 8px;display:none">
+         <div class="inner" style="text-align: center;vertical-align: middle;line-height: 50px;">
+          <p class="s"></p>
+        </div> 
+      </div> -->
+
+  <!--Bootstrap CDN-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3//jquery.min.js"></script>
+
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!--My javascript file-->
+  <script src="/js/questioncarousel1.js"></script>
+  <script>
+
+    function toggle() {
+      var blur = document.getElementById('finalpage');
+      blur.classList.toggle('active');
+      var popup = document.getElementById('popup');
+      popup.classList.toggle('active');
+
+    }
+
+
+  /*  $('#ans').keydown(function () {
+
+      var key = e.which;
+
+      if (key == 13) {
+        var text = document.getElementById("ans").value;
+      var texte = text.trim().toLowerCase();
+
+      $.ajax({
+        type: "post",
+        url: '/validateAnswer/',
+        data: { name: texte },
+        success: function (jd) {
+
+          if (jd.data == "1") {
+            
+            $(".wrong").replaceWith("<p class='wrong'></p>");
+            jQuery("#myModal").modal('toggle');
+
+            $(".first").replaceWith("<img src='" + jd.path[0] + "' class='first'>");
+            $(".second").replaceWith("<img src='" + jd.path[1] + "' class='second'>");
+            $(".third").replaceWith("<img src='" + jd.path[2] + "' class='third'>");
+            $("#ans").val('');
+
+            $("#levelno").text("🏆 " + (jd.number + 1));
+            $("#compeletedLevel").text("Level " + jd.number + " 🆙");
+
+            $(".modal-body").replaceWith("<img src='" + jd.giff+ "' class='img-responsive'>");
+            $(".modal fade").show("slow").delay(5000).queue(function (n) {
+              $(this).hide("slow"); n();
+            });
+
+          }
+          else {
+            
+            $(".wrong").replaceWith("<p class='wrong'>Wrong Answer!!</p>");
+            $(".wrong").show("slow").delay(3500).queue(function (n) {
+              $(this).hide("slow"); n();
+            });
+          }
+
+        }
+      });
+      }
+    }); 
+ */
+
+
+
+$('#answerbutton').on('click', function () {
+      var text = document.getElementById("ans").value;
+      var texte = text.trim().toLowerCase();
+
+      $.ajax({
+        type: "post",
+        url: '/validateAnswer/',
+        data: { name: texte },
+        success: function (jd) {
+
+          if (jd.data == "1") {
+            
+            $(".wrong").replaceWith("<p class='wrong'></p>");
+            jQuery("#myModal").modal('toggle');
+
+            $(".first").replaceWith("<img src='" + jd.path[0] + "' class='first'>");
+            $(".second").replaceWith("<img src='" + jd.path[1] + "' class='second'>");
+            $(".third").replaceWith("<img src='" + jd.path[2] + "' class='third'>");
+            $("#ans").val('');
+
+            $("#levelno").text("🏆 " + (jd.number + 1));
+            $("#compeletedLevel").text("Level " + jd.number + " 🆙");
+            $(".match").replaceWith(" <div class='match'>😎 "+jd.curTeam.team+" 🆚 "+jd.oppTeam.team+" 🤖</div>");
+            $("#you").replaceWith(" <img src='"+jd.curTeam.pla_photo[0]+"' alt='' id='you' style='width: 90%; height:90%'>");
+            $("#opp").replaceWith(" <img src='"+jd.oppTeam.pla_photo[0]+"' alt='' id='opp' style='width: 90%; height:90%'>");
+            $(".img-responsive").replaceWith("<img src='" + jd.giff + "' class='img-responsive'>");
+            $(".modal fade").show("slow").delay(5000).queue(function (n) {
+              $(this).hide("slow"); n();
+            });
+
+
+          }
+          else {
+            console.log(jd);
+            
+            $(".wrong").replaceWith("<p class='wrong'>Wrong Answer!!</p>");
+            $(".wrong").show("slow").delay(3500).queue(function (n) {
+              $(this).hide("slow"); n();
+            });
+          }
+
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

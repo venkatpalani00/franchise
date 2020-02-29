@@ -1,0 +1,24 @@
+<html>
+<title>Login</title>
+
+<body>
+    <br>
+    <br>
+    <center><h1>LOGIN PAGE</h1></center>
+    <br><br>
+    <center>
+        <form action="/loginCheck/" method="POST">
+            Username: <input type="text" name="email">
+            <br><br>
+            Password: <input type="password" name="password">
+            <br><br>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="submit" value="Login">
+        </form>
+        <br><br>
+        <b>Page is redirected here itself when the username or password is incorrect!</b>
+    </center>
+
+</body>
+
+</html>

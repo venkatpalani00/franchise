@@ -1,0 +1,15 @@
+<html>
+    <title>Add user</title>
+    <body>
+        <form action="/addUser/" method="POST">
+            Name: <input type="text" name="name">
+            <br>
+            Username(This should be unique! No validation done###): <input type="text" name="username">
+            <br>
+            Password: <input type="password" name="password">
+            <br>
+            <input type="submit" value="Create new user">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        </form>
+    </body>
+</html>

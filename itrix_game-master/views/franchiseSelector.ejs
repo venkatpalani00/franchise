@@ -1,0 +1,494 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select your franchise</title>
+
+
+      
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+
+
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+
+      <link rel="stylesheet" href="/css/franchiseSelector.css">
+</head>
+<body>
+    <script type="text/javascript">
+/*
+        function selectFranchise(int n)
+      { 
+        var f="";
+        switch(n)
+        {
+            case 1:f="kkr";break;
+            case 2:f="rcb";break;
+            case 3:f="csk";break;
+            case 4:f="srh";break;
+            case 5:f="mi";break;
+        }
+        console.log(f);
+        $.ajax({
+                type: "post",
+                url: "/addFranchise/",
+                data: {franchise:f },
+                success: function (data) {
+
+                }
+            });
+      }
+
+        function test(){
+            console.log("hi");
+        }
+    */
+    </script>
+    <div class="team">
+        <div class="heading">        <h1>Select your franchise.</h1>
+        </div>
+        <div class="container-fluid teams">
+            <div class="row justify-content-center">
+                
+                
+                    <div class="col-5 col-md-2 kkr"  onclick="selectFranchise(1)">
+                        <h1>KKR</h1>
+                        <div class="imgcontainer">
+                            <img src="/asset/kkr.png"   alt="">
+    
+                        </div>
+                        <div class="details">
+                            <h5>Knight Riders</h5>
+                            <p>Dinesh Karthik</p>
+                        </div>
+               
+                    </div>
+                 
+                
+            
+                <div class="col-5 col-md-2 rcb"  onclick="selectFranchise(2)">
+                    
+                    <h1>RCB</h1>
+                    <div class="imgcontainer">
+                        <img src="/asset/rcb.png"   alt="">
+
+                    </div>
+                    <div class="details">
+                        <h5>Challengers Bangalore</h5>
+                        <p>Virat Kohli</p>
+                    </div>
+                </div>
+           
+              
+            
+            </div>
+            <div class="row justify-content-center kkrrow">
+                
+                    <div class="col-10 col-md-4 csk" onclick="selectFranchise(3)">
+                        <h1>CSK</h1>
+                        <div class="imgcontainer">
+                            <img src="/asset/csk.png"   alt="">
+    
+                        </div>
+                        <div class="details">
+                            <h5>Super Kings</h5>
+                            <p>MS Dhoni</p>
+                        </div>
+                    </div>
+                
+              
+            </div>
+            <div class="row justify-content-center">
+                
+                    <div class="col-5 col-md-2 srh" onclick="selectFranchise(4)">
+                        <h1>SRH</h1>
+                        <div class="imgcontainer">
+                            <img src="/asset/srh.png"   alt="">
+    
+                        </div>
+                        <div class="details">
+                            <h5>Sun Risers</h5>
+                            <p>D Warner</p>
+                        </div>
+                    </div>
+               
+                <div class="col-5 col-md-2 mi" onclick="selectFranchise(5)">
+                    <h1>MI</h1>
+                    <div class="imgcontainer">
+                        <img src="/asset/mi.png"   alt="">
+
+                    </div>
+                    <div class="details">
+                        <h5>Mumbai Indians</h5>
+                        <p>Rohit Sharma</p>
+                    </div>
+                </div>
+              
+            </div>
+
+               
+            </div>
+        
+    </div>
+
+
+    <script type="text/javascript">
+
+        function selectFranchise(n)
+      { 
+        var f="";
+        switch(n)
+        {
+            case 1:f="kkr";break;
+            case 2:f="rcb";break;
+            case 3:f="csk";break;
+            case 4:f="srh";break;
+            case 5:f="mi";break;
+        }
+        console.log(f);
+        $.ajax({
+                type: "post",
+                url: "/addFranchise/",
+                data: {franchise:f },
+                success: function () {
+
+                }
+            });
+      }
+
+        function test(n){
+            console.log(n);
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+
+ 
+
+</body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select your franchise</title>
+
+
+      <!--Bootstrap Links-->
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+
+
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+
+      <link rel="stylesheet" href="/css/franchiseSelector.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Team selector-->
+    <div class="team" id="franchisediv">
+        <div class="heading">        <h1>Select your franchise.</h1>
+        </div>
+        <div class="container-fluid teams">
+            <div class="row justify-content-center">
+                
+                
+                    <div class="col-5 col-md-2 kkr" onclick="changetoplayer(1)">
+                        <h1>KKR</h1>
+                        <div class="imgcontainer">
+                            <img src="/asset/kkr.png"   alt="">
+    
+                        </div>
+                        <div class="details">
+                            <h5>Knight Riders</h5>
+                            <p>Dinesh Karthik</p>
+                        </div>
+               
+                    </div>
+                 
+                
+            
+                <div class="col-5 col-md-2 rcb"   onclick="changetoplayer(2)">
+                    
+                    <h1>RCB</h1>
+                    <div class="imgcontainer">
+                        <img src="/asset/rcb.png"   alt="">
+
+                    </div>
+                    <div class="details">
+                        <h5>Challengers Bangalore</h5>
+                        <p>Virat Kohli</p>
+                    </div>
+                </div>
+           
+              
+            
+            </div>
+            <div class="row justify-content-center kkrrow">
+                
+                    <div class="col-10 col-md-4 csk" onclick="changetoplayer(3)">
+                        <h1>CSK</h1>
+                        <div class="imgcontainer">
+                            <img src="/asset/csk.png"   alt="">
+    
+                        </div>
+                        <div class="details">
+                            <h5>Super Kings</h5>
+                            <p>MS Dhoni</p>
+                        </div>
+                    </div>
+                
+              
+            </div>
+            <div class="row justify-content-center">
+                
+                    <div class="col-5 col-md-2 srh" onclick="changetoplayer(4)">
+                        <h1>SRH</h1>
+                        <div class="imgcontainer">
+                            <img src="/asset/srh.png"   alt="">
+    
+                        </div>
+                        <div class="details">
+                            <h5>Sun Risers</h5>
+                            <p>D Warner</p>
+                        </div>
+                    </div>
+               
+                <div class="col-5 col-md-2 mi" onclick="changetoplayer(5)">
+                    <h1>MI</h1>
+                    <div class="imgcontainer">
+                        <img src="/asset/mi.png"   alt="">
+
+                    </div>
+                    <div class="details">
+                        <h5>Mumbai Indians</h5>
+                        <p>Rohit Sharma</p>
+                    </div>
+                </div>
+              
+            </div>
+
+               
+            </div>
+        
+    </div>
+
+
+    <!--Player Selector-->
+
+    <div class="playercontainer" id="playerdiv"  style="display: none;" >
+        <div class="header">
+          <center><h1 style="font-size:35px;color:white"> Pick your 3.</h1></center>
+          </div>
+          
+          <form name="players_selection" method="POST" action="/franchise/">
+          
+          <div class="form-group">
+            
+             <div class="container">
+               <div class="row row-no-gutters">
+               <div class="col-sm-2">
+                </div>
+                   <div class="col-sm-3" >
+                        <div class="card" style=" border-color:transparent;" >
+                      <p class="1"><img src="/asset/virat.png" alt="virat" style="width:100%"></p>
+                      <h1 class="pl1">Virat Kohli</h1><br><br>
+                      <p class="title" id="title">Royal Challengers Bangalore</p>
+                      <div class="check">
+                        <h5><b><input id="boxid" type="checkbox" class="option-input checkbox" name="play" value="0"><label for="boxid">ADD</label></b></h5>
+                      </div>
+                  </div>
+                    </div>
+                <div class="col-sm-2">
+                </div>
+                    <div class="col-sm-3" >
+                               <div class="card"  style=" border-color:transparent;">
+                      <p class="2"><img src="/asset/abd.png" alt="abdvilliers" style="width:100%"></p>
+                      <h1 class="pl2">AB de Villiers</h1>
+                      <br><br>
+                      <p class="title">Royal Challengers Bangalore</p>
+                      <div class="check">                     <h5><b><input id="boxid1" type="checkbox" class="option-input checkbox" name="play" value="1"><label for="boxid">ADD</label></b></h5>
+                      </div>
+                  </div>
+                  </div>
+               <div class="col-sm-2">
+                </div>
+                  </div>
+              <div class="row row-no-gutters">
+              <div class="col-sm-1">
+                </div>
+                    <div class="col-sm-3">
+                            <div class="card"  style=" border-color:transparent;">
+                     <p class="3"> <img src="/asset/umesh.png" alt="umesh" style="width:100%"></p>
+                      <h1 class="pl3">Umesh Yadav</h1><br><br>
+                      <p class="title">Royal Challengers Bangalore</p>
+                      <div class="check">                     <h5><b><input id="boxid2" type="checkbox" class="option-input checkbox" name="play" value="2"><label for="boxid">ADD</label></b></h5>
+                      </div>
+                    </div>
+          
+                   </div>
+              <div class="col-sm-1">
+                </div>
+                    <div class="col-sm-3">
+                           <div class="card"  style=" border-color:transparent;">
+                       
+                     <p class="4">  <img src="/asset/umesh.png" alt="umesh" style="width:100%"></p>
+                      <h1 class="pl4">Yuzvendra Chahal</h1><br><br>
+                      <p class="title">Royal Challengers Bangalore</p>
+                      <div class="check">                     <h5><b><input id="boxid3" type="checkbox" class="option-input checkbox" name="play" value="3"><label for="boxid">ADD</label></b></h5>
+                      </div>
+                    </div>
+                    </div>
+              <div class="col-sm-1">
+                </div>
+                <div class="col-sm-3">
+                         <div class="card"  style=" border-color:transparent;">
+                      <p class="5"><img src="/asset/negi.png" alt="negi" style="width:100%"></p>
+                      <h1 class="pl5">Pawan Negi</h1><br><br>
+                      <p class="title">Royal Challengers Bangalore</p>
+                      <div class="check">                     <h5><b><input id="boxid4" type="checkbox" class="option-input checkbox" name="play" value="4"><label for="boxid">ADD</label></b></h5>
+                      </div>
+                    </div>
+                </div>
+             </div>
+             </div>
+          <br>
+          <center><div id="info" style="height:50px;width:300px;color:#FF4500;box-shadow: 0 0 5px 0 #FF4500 inset, 0 0 5px 1px #FF4500;
+            border: 1px solid #FF4500; visibility: hidden;" >SELECT ONLY THREE PLAYERS OUT OF 5</div></center>
+          </div>
+          
+          
+          
+          <dialog id="myDialog" style=" width: 60%;
+            height: auto; color:white;background-color:black;" >
+          <center><h2> Three Players Selected. Click <b style="color:yellow">"PLAY"</b> to proceed.</h2></center>
+          <br>
+           <center> <button onclick="addplayer()" type="submit" id="checkerButton" class="btn btn-outline-success">PLAY</button></center>
+          <br>
+          <h7>* Press "Esc" to close</h7>
+          
+          </dialog>
+          
+          </form>
+      </div>
+
+      <script>
+          function changetoplayer(n)
+          {     
+
+        var f="";
+        switch(n)
+        {
+            case 1:f="kkr";break;
+            case 2:f="rcb";break;
+            case 3:f="csk";break;
+            case 4:f="srh";break;
+            case 5:f="mi";break;
+        }
+        console.log(f);
+
+        $.ajax({
+                type: "post",
+                url: "/addFranchise/",
+                data: {franchise:f },
+                success: function (jd) {
+                    console.log(jd.team);
+                         $(".title").replaceWith(jd.team);
+                         $(".pl1").replaceWith(jd.pla_name[0]);
+                         $(".pl2").replaceWith(jd.pla_name[1]);
+                         $(".pl3").replaceWith(jd.pla_name[2]);
+                         $(".pl4").replaceWith(jd.pla_name[3]);
+                         $(".pl5").replaceWith(jd.pla_name[4]);
+                         $(".1").replaceWith("<img src='" + jd.pla_photo[0] + "' class='1' style='width:100%'>")
+                         $(".2").replaceWith("<img src='" + jd.pla_photo[1] + "' class='1' style='width:100%'>")
+                         $(".3").replaceWith("<img src='" + jd.pla_photo[2] + "' class='1' style='width:100%'>")
+                         $(".4").replaceWith("<img src='" + jd.pla_photo[3] + "' class='1' style='width:100%'>")
+                         $(".5").replaceWith("<img src='" + jd.pla_photo[4] + "' class='1' style='width:100%'>")
+                }
+            });
+            
+              document.getElementById('playerdiv').style.display = 'block';
+              document.getElementById('franchisediv').style.display = 'none';
+          
+          
+        //  document.getElementById("title").innerHTML = f;
+      }
+
+  /*    function addplayer()
+      {    var arr = new Array();
+
+$(document).ready(function() {
+
+  $("input:checkbox[name=play]:checked").each(function() {
+       arr.push($(this).val());
+  });
+
+});
+console.log(arr);
+        $.ajax({
+                type: "post",
+                url: "/addPlayer/",
+                data: {pl1:arr[0],pl2:arr[1],pl3:arr[2] },
+                success: function (jd) {
+}
+});  
+}   */ 
+      </script>
+      <script>
+        $(document).ready(function(){
+        $('#boxid,#boxid1,#boxid2,#boxid3,#boxid4').click(function() {
+            console.log("hi");
+          if ($(this).is(':checked')) {
+            $(this).siblings('label').html('ADDED');
+            
+          } else {
+            $(this).siblings('label').html('ADD');
+            
+          }
+        $(document).ready(function() {
+        
+         $("#checkerButton").hide();
+        });
+        $(document).ready(function() {
+        
+          if ($("input:checkbox:checked").length == 3) {
+            $("#checkerButton").show();
+        document.getElementById('info').style.display = 'none'; 
+         document.getElementById("myDialog").showModal(); 
+          } else {
+            $("#checkerButton").hide();
+            document.getElementById('info').style.display = 'block'; 
+          }
+        });  
+        
+        });
+        });
+        
+        
+        </script>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Swiper CDN Script-->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+
+</body>
+</html>

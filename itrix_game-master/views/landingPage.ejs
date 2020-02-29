@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/landingpage.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/sigin.css">
+    <link rel="stylesheet" href="/css/rules.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+</head>
+
+<body onload="checkLoginFail()">
+    <div class="container-fluid mai" id="landing">
+        <div class="container title" id="title">
+            <div class="row justify-content-center">
+                <div class="col-10 col-md-8">
+                    <div class="h1div">
+                        <h1>Chamber of Secrets</h1>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+
+                <div class="col-4 col-md-3 sigbut">
+                    <div class="tag">
+                        <a href="#" id="nk">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Signup
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-4 col-md-3 logbut">
+                    <a href="#" id="li">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="container-fluid login" id="login" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-4 form">
+                <h2>Login!</h2>
+                <form action="/loginCheck/" id="logform" method="POST">
+                    <div class="input">
+                        <div class="inputbox">
+                            <label>Email</label>
+                            <input type="email" id = "email1" name="email" onchange="checkEmail1()" placeholder="example@gmail.com" required />
+                            <div id="message1" style="color: red;"></div>
+                        </div>
+
+
+                        <div class="inputbox">
+                            <label>Password</label>
+                            <input type="password" name="password" placeholder="******" required />
+                        </div>
+
+                        <input type="hidden" id="wrong_credentials" value="<%= loginFail %>">
+                        <div id="login_error" style="color: red;"><%= login_error %></div>
+                        <div class="inputbox">
+                            <input type="submit" value="Login" id="logbutton">
+
+                        </div>
+                        <div class="signupitems">
+                            <div class="inputbox">
+                                <label class="newuser">New User?</label>
+                                <input type="button" value="Signup" onclick="hmm()">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid " id="sigin" style="display: none;">
+        <div class="row justify-content-center">
+
+            <div class="col-10 col-md-4 form">
+
+                <h2>Sign up</h2>
+                <form action="/addUser/" method="POST" id="sigform">
+                    <div class="input">
+
+                        <div class="inputBox">
+                            <label>Name</label>
+                            <input type="text" name="name" placeholder="name" required>
+                        </div>
+                        <div class="inputBox">
+                            <label>Email</label>
+                            <input type="email" name="email" id="email" placeholder="abc@gmail.com"
+                                onchange="checkEmail()" required>
+                        </div>
+                        <div id="message" style="color: red;"></div>
+                        <div class="inputBox">
+                            <label>Contact Number</label>
+                            <input type="number" name="contact" id="contact" placeholder="9000111000"
+                                onkeyup="checkLength()" required>
+                            <div id="contact_error" style="color: red;"></div>
+                        </div>
+                        <div class="inputBox">
+                            <label>College Name</label>
+                            <input type="text" name="college" placeholder="college" required>
+                        </div>
+                        <div class="inputBox">
+                            <label>Password</label>
+                            <input type="password" name="password" id="pwd" placeholder="****" required>
+                        </div>
+                        <div class="inputBox">
+                            <label>Confirm Password</label>
+                            <input type="password" name="" id="cpwd" placeholder="****" required />
+                        </div>
+                        <div class="inputBox">
+
+                            <div id="showErrorPwd"></div>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" name="" value="Sign Up" id="signup" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <div class="rules" id="rules" style="display: none">
+            <div class="container-fluid rule">
+                <h1>Rules</h1>
+                
+                <div class="row justify-content-center r1">
+                    <div class="col-10 col-md-8 one">
+                    <span class="enclosed">Rule1</span>  <br>  Cricket is played between two teams each made up of eleven players. (Sometime in junior competitions you will find 8 player teams).
+                        </div>
+                </div>
+                <div class="row justify-content-center r2">
+                    <div class="col-10 col-md-8 one">
+                    <span class="enclosed">Rule2</span>  <br>  Games comprise of at least one innings where each team will take turns in batting and fielding/bowling.
+                        </div>
+                </div>
+                <div class="row justify-content-center r3">
+                    <div class="col-10 col-md-8 one">
+                    <span class="enclosed">Rule3</span>  <br>  The fielding team will have a bowler bowl the ball to the batsman who tries to hit the ball with their bat.
+                        </div>
+                </div>
+                <div class="row justify-content-center r4">
+                    <div class="col-10 col-md-8 one">
+                    <span class="enclosed">Rule4</span>  <br>  The fielding team must get 10 batsmen out before they can change over and start batting.
+                        </div>
+                </div>
+                <div class="row justify-content-center r5">
+                    <div class="col-10 col-md-8 one">
+                    <span class="enclosed">Rule5</span>  <br>  Hitting the ball and running between the wickets and making it to the other end before the fielders can hit the wickets with the ball. Each time you run one full length of the pitch it equals 1 run
+                        </div>
+                </div>
+                <div class="row justify-content-center r6">
+                    <div class="col-10 col-md-8 one">
+                    <span class="enclosed">Rule6</span>  <br>  The aim of the game is to score as many runs as possible before the fielding team takes 10 wickets. The team with the most runs wins.
+                        </div>
+                </div>
+                <div class="row justify-content-center r7">
+                    <div class="col-10 col-md-8 one">
+                    <span class="enclosed">Rule7</span>  <br>  Hitting the batsman’s leg in front of the wicket (LBW)
+                        </div>
+                </div>
+                <div class="row justify-content-center r8">
+                    <div class="col-10 col-md-8 one">
+                        <button type="button" class="btn btn-primary" onclick="kkk()">Skip</button>
+                </div>
+                
+    
+                
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        document.getElementById('li').addEventListener('click', function () {
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('landing').style.display = 'none';
+            document.getElementById('sigin').style.display = 'none';
+
+        });
+        document.getElementById('nk').addEventListener('click', function () {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('landing').style.display = 'none';
+            document.getElementById('sigin').style.display = 'none';
+            document.getElementById('rules').style.display = 'block';
+        });
+        function displayLogin() {
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('landing').style.display = 'none';
+            document.getElementById('sigin').style.display = 'none';
+
+        }
+        function kkk(){
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('landing').style.display = 'none';
+            document.getElementById('sigin').style.display = 'block';
+            document.getElementById('rules').style.display = 'none';
+        }
+    </script>
+    <script>
+
+        function disableSubmit() {
+            $('#signup').attr("disabled", true);
+        }
+
+        function enableSubmit() {
+            $('#signup').attr("disabled", false);
+        }
+
+        function checkLength() {
+            if (document.getElementById("contact").value.length != 10) {
+                disableSubmit();
+                document.getElementById("contact_error").innerHTML = "Please enter a valid contact number";
+            }
+            else {
+                document.getElementById("contact_error").innerHTML = "";
+                enableSubmit();
+            }
+        }
+
+        function checkLoginFail() {
+            //console.log("The value of login fail is" + document.getElementById("wrong_credentials").value);
+            if (document.getElementById("wrong_credentials").value == 1) {
+                //console.log("display the login");
+                displayLogin();
+                document.getElementById("wrong_credentials").value == 0;
+            }
+        }
+
+        /*
+        $('#logform').keydown(function () {
+
+            var key = e.which;
+
+            if (key == 13) {
+                $('#logform').submit();
+            }
+        });
+        $('#sigform').keydown(function () {
+            var key = e.which;
+            if (key == 13) {
+                $('#sigform').submit();
+            }
+
+        });
+        */
+        function hmm() {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('landing').style.display = 'none';
+            document.getElementById('sigin').style.display = 'none';
+            document.getElementById('rules').style.display = 'block';
+           
+
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            if ($("#wrong_credentials").value === 1) {
+                displayLogin();
+            }
+            $('#cpwd').keyup(function () {
+                var pwd = $('#pwd').val();
+                var cpwd = $('#cpwd').val();
+
+                if (cpwd != pwd) {
+                    $('#showErrorPwd').html('Passwords are not matching');
+                    $('#showErrorPwd').css('color', 'red');
+                    return false;
+                }
+                else {
+                    $('#showErrorPwd').html('');
+
+                    return false;
+                }
+            });
+
+        });
+        function checkEmail() {
+            
+            var email = document.getElementById("email").value;
+            $.ajax({
+                type: "post",
+                url: "/checkEmail/",
+                data: { email: email },
+                success: function (data) {
+                    if (data.message === "") {
+                        enableSubmit();
+                    }
+                    else {
+                        disableSubmit();
+                    }
+                    document.getElementById("message").innerHTML = data.message;
+                }
+            });
+        }
+
+        function checkEmail1(){
+            console.log("hi");
+            var email = document.getElementById("email1").value;
+            console.log(email);
+            $.ajax({
+                type: "post",
+                url: "/checkEmail/",
+                data: { email: email },
+                success: function (data) {
+                    if (data.message === "Email already exists") {
+                        enableSubmit();
+                        document.getElementById("message1").innerHTML = "";
+                    }
+                    else {
+                        disableSubmit();
+                        document.getElementById("message1").innerHTML = "Email does not exist!";
+                    }
+                    //document.getElementById("message1").innerHTML = data.message;
+                }
+            });
+        }
+
+    </script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+</body>
+
+</html>

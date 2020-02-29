@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Candal|Days+One|Passion+One|Staatliches&display=swap');
+/* font-family: 'Passion One', ;
+font-family: 'Candal', ;
+font-family: 'Staatliches', ;
+font-family: 'Days One', ; */
+
+body{
+width:100%;
+height:100%;
+background-color: #131419  !important; ;
+}
+h1{
+   text-align: center;
+}
+.one{
+    background-color: #1A1B1E !important;
+
+}
+.rules{
+    opacity: 1;
+    animation: try 0.5s ease-in-out 0s;
+}
+@keyframes try{
+    0%{
+        opacity: 0;
+    }
+   
+    100%{
+        opacity: 1;
+    }
+}
+.rules div{
+    height:11.25vh;
+    font-family: 'Days One';
+    color:white;
+    padding:20px;
+
+}
+.enclosed {
+    background: linear-gradient(83deg, rgba(133,85,196,1) 0%, rgba(64,10,136,1) 49%, rgba(50,7,107,1) 100%);
+    line-height: 1;
+  
+    padding: 5px;
+    display: inline-block;
+    
+   
+  }
+ .btn-primary{
+    background-color: rgba(50,7,107,1) !important;
+    border:none !important;
+
+    font-family:'Days One' ;
+    position: relative;
+    left:45%;
+  }
+
+@media screen and (max-width: 768px) {
+
+    .btn-primary{
+        left:35%;
+    }
+    
+    .rules div{
+        height:11.25vh;
+        font-size:13px;
+        color:white;
+        padding:5px;
+        font-family: 'Days One' ;
+
+    }
+}
